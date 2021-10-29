@@ -6,13 +6,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/*
+ *   @author Snehangshu Biswas
+ *   @version 1.0.0
+ */
+
 public class EmpMain {
     public static void main(String[] args) {
         List<Employee> empList;
 
         Employee emp1 = new Employee("Snehangshu", "Kolkata", "123");
         Employee emp2 = new Employee("Rajsekhar", "Bangalore", "124");
-        Employee emp3 = new Employee("Arun", "Mangalore", "125");
+        Employee emp3 = new Employee("Krun", "Mangalore", "125");
         Employee emp4 = new Employee("Sharmila", "Bangalore", "126");
         Employee emp5 = new Employee("Sabbu", "UP", "127");
 
@@ -28,7 +33,7 @@ public class EmpMain {
         List<Employee> filteredEmployees;
 
         filteredEmployees = empList.stream().filter(employee -> Objects.equals(employee.getCity(), "Bangalore")).collect(Collectors.toList());
-
+        System.out.println();
         System.out.println("Filtered Employees :");
         System.out.println(filteredEmployees);
 
@@ -42,6 +47,7 @@ public class EmpMain {
             }
         }).collect(Collectors.toList());
 
+        System.out.println();
         System.out.println("Sorted Employees");
         System.out.println(sortedEmployees);
 
@@ -50,6 +56,8 @@ public class EmpMain {
             Employee foundEmployee = empList.stream()
                     .filter(employee -> Objects.equals(employee.getEid(), "126"))
                     .findFirst().orElseThrow(() -> new Exception("Not Found"));
+
+            System.out.println();
             System.out.println("First found employee with the if of 126");
             System.out.println(foundEmployee);
         } catch (Exception e) {
@@ -60,8 +68,10 @@ public class EmpMain {
         try {
             Employee myEmp;
             myEmp = empList.stream()
-                    .filter(employee -> employee.getName().startsWith("k"))
+                    .filter(employee -> employee.getName().startsWith("K"))
                     .findFirst().orElseThrow(() -> new Exception("Not in first place"));
+
+            System.out.println();
             System.out.println("Employee :");
             System.out.println(myEmp);
         } catch (Exception e) {
